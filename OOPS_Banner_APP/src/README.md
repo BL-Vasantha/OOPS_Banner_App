@@ -100,3 +100,21 @@ Applies **DRY Principle**
 - Introduces `CharacterPatternMap` class
 - Encapsulates character → pattern mapping
 - Demonstrates **OOPS principles**
+- --
+### ✅ UC8: Use HashMap for Character Patterns
+- Uses `HashMap<Character, String[]>`
+- Enables **O(1)** pattern lookup
+- Uses `StringBuilder` and nested loops
+- Results in a **fully scalable banner engine**
+
+---
+
+## 🧠 OOPS Concepts Demonstrated
+
+- Encapsulation
+- Abstraction
+- Modularity
+- Reusability
+- Single Responsibility Principle (SRP)
+- Separation of Concerns
+
