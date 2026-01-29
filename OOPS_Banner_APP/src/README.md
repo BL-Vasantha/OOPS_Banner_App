@@ -57,3 +57,14 @@ OOPS-Banner-App/
 ### ✅ UC1: Print Simple OOPS
 - Prints **OOPS** as plain text
 - **Focus:** Basic Java syntax
+- Prints **OOPS** as plain text
+- **Focus:** Basic Java syntax
+
+---
+
+# UC2 – Render OOPS as ASCII Banner
+This use case prints the word **OOPS** as a formatted ASCII banner on the console.
+The banner is created using asterisks (`*`) and spaces.
+Each letter is printed line by line using multiple `System.out.println()` statements.
+The program demonstrates string concatenation and console output in Java.
+
