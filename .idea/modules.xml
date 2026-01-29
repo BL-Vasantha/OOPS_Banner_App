@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/BannerAPP.iml" filepath="$PROJECT_DIR$/.idea/BannerAPP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPS_Banner_APP/OOPS_Banner_APP.iml" filepath="$PROJECT_DIR$/OOPS_Banner_APP/OOPS_Banner_APP.iml" />
+    </modules>
+  </component>
+</project>

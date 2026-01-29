@@ -1,57 +1,79 @@
 /**
  * OOPSBannerApp renders the word "OOPS" as an ASCII banner on the console.
  *
- * This program demonstrates:
- * - Basic Java class structure
- * - Usage of the main method as the entry point
- * - Arrays to store banner lines
- * - String concatenation to build ASCII art
- * - Console output using System.out.println()
+ * UC4 Implementation:
+ * - Stores all banner lines in a String array
+ * - Uses String.join() to construct each line
+ * - Uses a loop to print the banner
  *
- * Each letter of "OOPS" is represented using '*' characters.
- * The letter 'S' is drawn with a curved shape using spaces and stars.
+ * This approach improves modularity, readability, and reusability
+ * by eliminating repetitive print statements.
  *
  * @author Vasantha R
- * @version 3.0
+ * @version 4.0
  */
 public class OOPSBannerApp {
 
     /**
      * Entry point of the Java application.
      *
-     * Builds each line of the ASCII banner using
-     * string concatenation and prints it to the console.
+     * Constructs the ASCII banner using a String array
+     * and prints each line using an enhanced for loop.
      *
      * @param args command-line arguments (not used)
      */
     public static void main(String[] args) {
 
-        // Print the plain text "OOPS" before the banner
+        // Print plain text output
         System.out.println("OOPS");
 
-        // Array to store each line of the complete "OOPS" banner
+        // Step 1: Create a String array to store 7 banner lines
         String[] lines = new String[7];
 
-        // Array representing the 7-line curved shape of the letter 'S'
-        String[] S = new String[7];
-        S[0] = " *****";    // Top horizontal curve of S
-        S[1] = "**";        // Upper-left vertical stroke
-        S[2] = "**";        // Upper-left vertical stroke
-        S[3] = "  ***";     // Middle inward curve
-        S[4] = "    **";    // Lower-right vertical stroke
-        S[5] = "    **";    // Lower-right vertical stroke
-        S[6] = " *****";    // Bottom horizontal curve
+        // Step 2: Populate banner lines using String.join()
+        lines[0] = String.join("",
+                " ***   ***  ",
+                " *****",
+                " *****"
+        );
 
-        // Construct each line by combining O, O, P, and S patterns
-        lines[0] = " ***   ***  *****" + S[0]; // Top row of the banner
-        lines[1] = "** ** ** ** **   " + S[1]; // Second row
-        lines[2] = "** ** ** ** **   " + S[2]; // Third row
-        lines[3] = "** ** ** ** *****" + S[3]; // Middle row (P closes, S curves)
-        lines[4] = "** ** ** ** **   " + S[4]; // Fifth row
-        lines[5] = "** ** ** ** **   " + S[5]; // Sixth row
-        lines[6] = " ***   ***  **  " + S[6];  // Bottom row of the banner
+        lines[1] = String.join("",
+                "** ** ** ** ",
+                "**   ",
+                "**"
+        );
 
-        // Print each constructed line of the banner to the console
+        lines[2] = String.join("",
+                "** ** ** ** ",
+                "**   ",
+                "**"
+        );
+
+        lines[3] = String.join("",
+                "** ** ** ** ",
+                " *****",
+                "  ***"
+        );
+
+        lines[4] = String.join("",
+                "** ** ** ** ",
+                "**   ",
+                "    **"
+        );
+
+        lines[5] = String.join("",
+                "** ** ** ** ",
+                "**   ",
+                "    **"
+        );
+
+        lines[6] = String.join("",
+                " ***   ***  ",
+                "**   ",
+                " *****"
+        );
+
+        // Step 3: Print banner using enhanced for loop
         for (String line : lines) {
             System.out.println(line);
         }
