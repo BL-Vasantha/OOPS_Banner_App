@@ -85,3 +85,8 @@ The program demonstrates string concatenation and console output in Java.
 - Combines declaration and initialization
 - Uses `String.join()` inline
 - Reduces verbosity
+- --
+### ✅ UC6: Refactor Banner Logic into Methods
+- Separate methods for characters **O**, **P**, **S**
+- Applies **DRY Principle**
+- Improves reusability and maintainability
