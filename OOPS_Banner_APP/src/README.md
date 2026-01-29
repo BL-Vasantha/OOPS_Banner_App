@@ -78,3 +78,10 @@ The program demonstrates string concatenation and console output in Java.
 - Stores banner lines in a `String[]`
 - Uses loop for rendering
 - Improves modularity
+- --
+
+
+### ✅ UC5: Inline Array Initialization
+- Combines declaration and initialization
+- Uses `String.join()` inline
+- Reduces verbosity

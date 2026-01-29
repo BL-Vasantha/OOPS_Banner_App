@@ -72,3 +72,9 @@ The program demonstrates string concatenation and console output in Java.
 ### ✅ UC3: Banner Using `String.join()`
 - Replaces `+` operator with `String.join()`
 - Improves readability and memory efficiency
+- ---
+
+### ✅ UC4: Banner Using String Array & Loop
+- Stores banner lines in a `String[]`
+- Uses loop for rendering
+- Improves modularity
