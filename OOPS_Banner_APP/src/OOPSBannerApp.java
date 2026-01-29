@@ -1,100 +1,145 @@
 /**
  * OOPSBannerApp UC6 – Render OOPS as Banner using Modular Methods
+ * OOPSBannerApp UC7 – Store Character Pattern in a Class
  *
  * This use case refactors the banner logic into helper methods
  * to improve reusability, readability, and maintainability.
  *
- * Each letter of "OOPS" is generated using its own method,
- * and the main method assembles and prints the full banner.
- *
- * Benefits of this approach:
- * - Reduces code repetition
- * - Makes it easy to modify or reuse letter patterns
- * - Improves readability and organization
+ * This use case introduces CharacterPatternMap to encapsulate
+ * character-to-pattern mappings and dynamically render ASCII banners.
  *
  * @author Vasantha R
- * @version 6.0
+ * @version 7.0
  */
+
 public class OOPSBannerApp {
 
     /**
-     * Generates the ASCII pattern for the letter 'O'.
-     *
-     * @return a String array representing 7 lines of 'O'
+     * Inner static class to store character-to-pattern mapping
      */
-    public static String[] getOPattern() {
-        return new String[] {
-                "  *****  ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                " *     * ",
-                "  *****  "
+    static class CharacterPatternMap {
+
+        private final Character character;
+        private final String[] pattern;
+
+        /**
+         * Constructor to initialize character and its pattern
+         *
+         * @param character the character being represented
+         * @param pattern   ASCII art pattern (7 lines)
+         */
+        public CharacterPatternMap(Character character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        /**
+         * @return mapped character
+         */
+        public Character getCharacter() {
+            return character;
+        }
+
+        /**
+         * @return ASCII pattern for the character
+         */
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    /**
+     * Creates and initializes character-pattern mappings
+     *
+     * @return array of CharacterPatternMap
+     */
+    public static CharacterPatternMap[] createCharacterPatternMaps() {
+        return new CharacterPatternMap[]{
+                new CharacterPatternMap('O', new String[]{
+                        "  *****  ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        " *     * ",
+                        "  *****  "
+                }),
+                new CharacterPatternMap('P', new String[]{
+                        " ******  ",
+                        " *     * ",
+                        " *     * ",
+                        " ******  ",
+                        " *       ",
+                        " *       ",
+                        " *       "
+                }),
+                new CharacterPatternMap('S', new String[]{
+                        "  *****  ",
+                        " *       ",
+                        " *       ",
+                        "  *****  ",
+                        "       * ",
+                        "       * ",
+                        "  *****  "
+                }),
+                new CharacterPatternMap(' ', new String[]{
+                        "          ",
+                        "          ",
+                        "          ",
+                        "          ",
+                        "          ",
+                        "          ",
+                        "          "
+                })
         };
     }
 
     /**
-     * Generates the ASCII pattern for the letter 'P'.
+     * Retrieves the ASCII pattern for a given character
      *
-     * @return a String array representing 7 lines of 'P'
+     * @param ch       character to look up
+     * @param charMaps array of character-pattern mappings
+     * @return pattern array
      */
-    public static String[] getPPattern() {
-        return new String[] {
-                " ******  ",
-                " *     * ",
-                " *     * ",
-                " ******  ",
-                " *        ",
-                " *        ",
-                " *        "
-        };
+    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] charMaps) {
+        for (CharacterPatternMap map : charMaps) {
+            if (map.getCharacter() == ch) {
+                return map.getPattern();
+            }
+        }
+        // Default to space pattern if character not found
+        for (CharacterPatternMap map : charMaps) {
+            if (map.getCharacter() == ' ') {
+                return map.getPattern();
+            }
+        }
+        return new String[]{" ", " ", " ", " ", " ", " ", " "};
     }
 
     /**
-     * Generates the ASCII pattern for the letter 'S'.
+     * Prints a message as an ASCII banner
      *
-     * @return a String array representing 7 lines of 'S'
+     * @param message  text to display
+     * @param charMaps available character patterns
      */
-    public static String[] getSPattern() {
-        return new String[] {
-                "  *****  ",
-                " *        ",
-                " *        ",
-                "  *****  ",
-                "       * ",
-                "       * ",
-                "  *****  "
-        };
+    public static void printMessage(String message, CharacterPatternMap[] charMaps) {
+        message = message.toUpperCase();
+        for (int row = 0; row < 7; row++) {
+            StringBuilder lineBuilder = new StringBuilder();
+            for (char ch : message.toCharArray()) {
+                String[] pattern = getCharacterPattern(ch, charMaps);
+                lineBuilder.append(pattern[row]);
+            }
+            System.out.println(lineBuilder.toString());
+        }
     }
 
     /**
-     * Entry point of the Java application.
-     *
-     * Assembles the OOPS banner by combining individual
-     * letter patterns line by line and prints them.
-     *
-     * @param args command-line arguments (not used)
+     * Main method – Entry point
      */
     public static void main(String[] args) {
-
-        // Step 1: Retrieve patterns for each letter
-        String[] oPattern = getOPattern();
-        String[] pPattern = getPPattern();
-        String[] sPattern = getSPattern();
-
-        // Step 2: Print the OOPS banner line by line
-        // Loop through each of the 7 lines
-        for (int i = 0; i < oPattern.length; i++) {
-            // Concatenate letters O, O, P, S for the current line
-            System.out.println(
-                    String.join("",
-                            oPattern[i],   // First 'O'
-                            oPattern[i],   // Second 'O'
-                            pPattern[i],   // 'P'
-                            sPattern[i]    // 'S'
-                    )
-            );
-        }
+        CharacterPatternMap[] charMaps = createCharacterPatternMaps();
+        String message = "OOPS";
+        printMessage(message, charMaps);
     }
 }
