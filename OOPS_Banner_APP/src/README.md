@@ -90,3 +90,13 @@ The program demonstrates string concatenation and console output in Java.
 - Separate methods for characters **O**, **P**, **S**
 - Applies **DRY Principle**
 - Improves reusability and maintainability
+- --
+Applies **DRY Principle**
+- Improves reusability and maintainability
+
+---
+
+### ✅ UC7: Store Character Pattern in a Class
+- Introduces `CharacterPatternMap` class
+- Encapsulates character → pattern mapping
+- Demonstrates **OOPS principles**
