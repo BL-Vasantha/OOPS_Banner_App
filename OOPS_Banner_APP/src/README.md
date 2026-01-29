@@ -67,4 +67,8 @@ This use case prints the word **OOPS** as a formatted ASCII banner on the consol
 The banner is created using asterisks (`*`) and spaces.
 Each letter is printed line by line using multiple `System.out.println()` statements.
 The program demonstrates string concatenation and console output in Java.
+---
 
+### ✅ UC3: Banner Using `String.join()`
+- Replaces `+` operator with `String.join()`
+- Improves readability and memory efficiency

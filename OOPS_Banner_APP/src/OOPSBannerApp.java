@@ -3,68 +3,57 @@
  *
  * This program demonstrates:
  * - Basic Java class structure
- * - Usage of the main method
+ * - Usage of the main method as the entry point
+ * - Arrays to store banner lines
+ * - String concatenation to build ASCII art
  * - Console output using System.out.println()
  *
- * The banner is constructed using asterisks (*) and spaces,
- * printed line by line using multiple print statements.
- *
- * This implementation follows UC2 requirements by using:
- * - Multiple print statements
- * - String concatenation
- * - Fixed-size (7-line) banner characters
+ * Each letter of "OOPS" is represented using '*' characters.
+ * The letter 'S' is drawn with a curved shape using spaces and stars.
  *
  * @author Vasantha R
- * @version 1.2
+ * @version 3.0
  */
 public class OOPSBannerApp {
 
     /**
      * Entry point of the Java application.
      *
-     * Executes a sequence of print statements to display
-     * the banner representation of the word "OOPS".
+     * Builds each line of the ASCII banner using
+     * string concatenation and prints it to the console.
      *
      * @param args command-line arguments (not used)
      */
     public static void main(String[] args) {
 
-        // Print plain OOPS text (UC1 reference)
+        // Print the plain text "OOPS" before the banner
         System.out.println("OOPS");
 
-        // Prints the top curved line of all characters: O O P S
-        System.out.println(
-                "   ***    " + "   ***    " + " ******  " + "  *****  "
-        );
+        // Array to store each line of the complete "OOPS" banner
+        String[] lines = new String[7];
 
-        // Prints the upper body of the characters
-        System.out.println(
-                " **   **  " + " **   **  " + " **   ** " + " **      "
-        );
+        // Array representing the 7-line curved shape of the letter 'S'
+        String[] S = new String[7];
+        S[0] = " *****";    // Top horizontal curve of S
+        S[1] = "**";        // Upper-left vertical stroke
+        S[2] = "**";        // Upper-left vertical stroke
+        S[3] = "  ***";     // Middle inward curve
+        S[4] = "    **";    // Lower-right vertical stroke
+        S[5] = "    **";    // Lower-right vertical stroke
+        S[6] = " *****";    // Bottom horizontal curve
 
-        // Continues the upper body of the characters
-        System.out.println(
-                " **   **  " + " **   **  " + " **   ** " + " **      "
-        );
+        // Construct each line by combining O, O, P, and S patterns
+        lines[0] = " ***   ***  *****" + S[0]; // Top row of the banner
+        lines[1] = "** ** ** ** **   " + S[1]; // Second row
+        lines[2] = "** ** ** ** **   " + S[2]; // Third row
+        lines[3] = "** ** ** ** *****" + S[3]; // Middle row (P closes, S curves)
+        lines[4] = "** ** ** ** **   " + S[4]; // Fifth row
+        lines[5] = "** ** ** ** **   " + S[5]; // Sixth row
+        lines[6] = " ***   ***  **  " + S[6];  // Bottom row of the banner
 
-        // Prints the middle section where P and S curve inward
-        System.out.println(
-                " **   **  " + " **   **  " + " ******  " + "  ***    "
-        );
-
-        // Prints the lower body; S begins right-side curve
-        System.out.println(
-                " **   **  " + " **   **  " + " **      " + "      ** "
-        );
-
-        // Continues the lower body of the characters
-        System.out.println(
-                " **   **  " + " **   **  " + " **      " + "      ** "
-        );
-
-        // Prints the bottom curved line to complete O O P S
-        System.out.println(
-                "   ***    " + "   ***    " + " **      " + "  *****  "
-        );
+        // Print each constructed line of the banner to the console
+        for (String line : lines) {
+            System.out.println(line);
+        }
     }
 }
